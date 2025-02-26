@@ -1,6 +1,6 @@
 FROM cachyos/cachyos:latest
 
-RUN yes | pacman -Syyu paru polkit
+RUN yes | pacman -Syyu paru opendoas
 
 COPY docker /
 
@@ -19,7 +19,7 @@ RUN useradd -m build
 
 RUN rm -f /bin/sudo
 
-RUN ln -s pkexec /bin/sudo
+RUN ln -s doas /bin/sudo
 
 USER build
 
