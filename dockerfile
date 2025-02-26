@@ -1,6 +1,6 @@
 FROM cachyos/cachyos:latest
 
-RUN yes | pacman -Syyu paru
+RUN yes | pacman -Syyu paru polkit
 
 COPY docker /
 
