@@ -30,7 +30,7 @@ WORKDIR /home/build
 RUN git config --global user.email "shadichy@blisslabs.org"
 RUN git config --global user.name "Shadichy"
 
-RUN repo init -u https://github.com/BlissRoms/platform_manifest.git -b typhoon-qpr2 --git-lfs --depth=1 --manifest-depth=1 --no-tags
+RUN repo init -u https://github.com/BlissRoms/stable_releases -b voyager --git-lfs --depth=1 --manifest-depth=1 --no-tags
 
 RUN mkdir -p .repo/local_manifests
 
