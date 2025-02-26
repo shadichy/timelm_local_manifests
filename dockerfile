@@ -11,6 +11,7 @@ RUN yes | pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.p
 RUN yes | pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
 RUN echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" > /etc/pacman.conf
+RUn sed -i 's/$arch/x86_64/g' /etc/pacman.d/chaotic-mirrorlist
 
 RUN sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 
