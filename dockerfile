@@ -4,14 +4,14 @@ COPY docker /
 
 RUN yes | pacman -Syyu paru sudo
 
-RUN yes | pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-RUN yes | pacman-key --lsign-key 3056513887B78AEB
+# RUN yes | pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+# RUN yes | pacman-key --lsign-key 3056513887B78AEB
 
-RUN yes | pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
-RUN yes | pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+# RUN yes | pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+# RUN yes | pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
-RUN echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" > /etc/pacman.conf
-RUn sed -i 's/$arch/x86_64/g' /etc/pacman.d/chaotic-mirrorlist
+# RUN echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" > /etc/pacman.conf
+# RUn sed -i 's/$arch/x86_64/g' /etc/pacman.d/chaotic-mirrorlist
 
 RUN sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 
