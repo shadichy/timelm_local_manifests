@@ -1,8 +1,8 @@
 FROM cachyos/cachyos:latest
 
-COPY docker /
+RUN yes | pacman -Syyu paru
 
-RUN yes | pacman -Syyu paru sudo
+COPY docker /
 
 # RUN yes | pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 # RUN yes | pacman-key --lsign-key 3056513887B78AEB
@@ -16,6 +16,10 @@ RUN yes | pacman -Syyu paru sudo
 RUN sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 
 RUN useradd -m build
+
+RUN rm -f /bin/sudo
+
+RUN ln -s pkexec /bin/sudo
 
 USER build
 
